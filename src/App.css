@@ -1,0 +1,15 @@
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.new-task-button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}

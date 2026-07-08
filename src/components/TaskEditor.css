@@ -1,0 +1,24 @@
+.task-editor h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.task-editor__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.task-editor__field input[type='text'] {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+}
+
+.task-editor__error {
+  color: #c0392b;
+  font-size: 13px;
+  margin: 0;
+}

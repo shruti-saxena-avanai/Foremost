@@ -31,3 +31,7 @@
 .priority-selector--medium select {
   border-color: var(--priority-medium-text);
 }
+
+.priority-selector--low select {
+  border-color: var(--priority-low-text);
+}

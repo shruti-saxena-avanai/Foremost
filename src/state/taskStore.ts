@@ -98,6 +98,11 @@ export function deleteTask(id: string): void {
   emit()
 }
 
+export function retryLoad(): void {
+  state = hydrate()
+  emit()
+}
+
 export function useTaskStore() {
   const snapshot = useSyncExternalStore(subscribe, getSnapshot)
   return {
@@ -108,5 +113,6 @@ export function useTaskStore() {
     completeTask,
     reopenTask,
     deleteTask,
+    retryLoad,
   }
 }

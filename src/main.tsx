@@ -3,6 +3,12 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 
+if (import.meta.env.DEV) {
+  import('./state/taskStore').then((taskStore) => {
+    Object.assign(window, { taskStore })
+  })
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

@@ -3,8 +3,10 @@ import AppShell from './components/AppShell'
 import TaskListView from './components/TaskListView'
 import TaskEditor from './components/TaskEditor'
 import DeleteConfirmation from './components/DeleteConfirmation'
+import FilterControls from './components/FilterControls'
 import { useTaskStore } from './state/taskStore'
 import { sortTasks } from './utils/taskSorter'
+import { DEFAULT_FILTERS, filterTasks, type TaskFilters } from './utils/taskFilter'
 import type { Priority, Task } from './state/task'
 import './App.css'
 
@@ -14,12 +16,16 @@ function App() {
   const [isHydrating, setIsHydrating] = useState(true)
   const [editingTask, setEditingTask] = useState<Task | 'new' | null>(null)
   const [deletingTask, setDeletingTask] = useState<Task | null>(null)
+  const [filters, setFilters] = useState<TaskFilters>(DEFAULT_FILTERS)
 
   useEffect(() => {
     setIsHydrating(false)
   }, [])
 
-  const sortedTasks = useMemo(() => sortTasks(tasks), [tasks])
+  const visibleTasks = useMemo(
+    () => sortTasks(filterTasks(tasks, filters)),
+    [tasks, filters],
+  )
 
   function handleSave(input: { title: string; priority: Priority }) {
     if (editingTask && editingTask !== 'new') {
@@ -34,6 +40,13 @@ function App() {
     <AppShell
       filters={
         <div className="toolbar">
+          <FilterControls
+            status={filters.status}
+            priority={filters.priority}
+            onStatusChange={(status) => setFilters((current) => ({ ...current, status }))}
+            onPriorityChange={(priority) => setFilters((current) => ({ ...current, priority }))}
+            onClear={() => setFilters(DEFAULT_FILTERS)}
+          />
           <button type="button" className="new-task-button" onClick={() => setEditingTask('new')}>
             New Task
           </button>
@@ -41,9 +54,14 @@ function App() {
       }
     >
       <TaskListView
-        tasks={sortedTasks}
+        tasks={visibleTasks}
         isLoading={isHydrating}
         error={loadError}
+        emptyMessage={
+          tasks.length > 0 && visibleTasks.length === 0
+            ? 'No tasks match the current filters.'
+            : undefined
+        }
         onRetry={retryLoad}
         onEdit={(task) => setEditingTask(task)}
         onToggleStatus={(task) =>

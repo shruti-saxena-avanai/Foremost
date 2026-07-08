@@ -5,6 +5,7 @@ interface TaskListViewProps {
   tasks: Task[]
   isLoading: boolean
   error?: string | null
+  emptyMessage?: string
   onRetry?: () => void
   onEdit?: (task: Task) => void
   onToggleStatus?: (task: Task) => void
@@ -15,6 +16,7 @@ function TaskListView({
   tasks,
   isLoading,
   error,
+  emptyMessage,
   onRetry,
   onEdit,
   onToggleStatus,
@@ -41,7 +43,9 @@ function TaskListView({
 
   if (tasks.length === 0) {
     return (
-      <div className="task-list-state">No tasks yet — add one to get started.</div>
+      <div className="task-list-state">
+        {emptyMessage ?? 'No tasks yet — add one to get started.'}
+      </div>
     )
   }
 

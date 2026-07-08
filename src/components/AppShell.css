@@ -1,0 +1,26 @@
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+  box-sizing: border-box;
+}
+
+.app-shell__header {
+  margin-bottom: 16px;
+}
+
+.app-shell__title {
+  margin: 0;
+  font-size: 28px;
+}
+
+.app-shell__filters {
+  margin-bottom: 16px;
+}
+
+.app-shell__main {
+  flex: 1;
+}

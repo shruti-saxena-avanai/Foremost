@@ -1,25 +1,33 @@
 .priority-selector {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  font-size: 14px;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
 }
 
 .priority-selector select {
-  padding: 8px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
   font: inherit;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.priority-selector select:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .priority-selector--high select {
-  border-color: #c0392b;
+  border-color: var(--priority-high-text);
 }
 
 .priority-selector--medium select {
-  border-color: #b7791f;
-}
-
-.priority-selector--low select {
-  border-color: #2f855a;
+  border-color: var(--priority-medium-text);
 }

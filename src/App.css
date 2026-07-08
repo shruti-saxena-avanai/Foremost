@@ -4,15 +4,25 @@
   align-items: flex-end;
   gap: 12px;
   flex-wrap: wrap;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .new-task-button {
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
   border: none;
-  background: #2563eb;
-  color: #fff;
+  background: var(--accent);
+  color: var(--accent-contrast);
   font: inherit;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.new-task-button:hover {
+  background: var(--accent-strong);
 }

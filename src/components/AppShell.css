@@ -2,19 +2,62 @@
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 24px 20px 40px;
-  box-sizing: border-box;
 }
 
 .app-shell__header {
-  margin-bottom: 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-shell__header-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.app-shell__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-shell__logo {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: var(--accent-contrast);
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .app-shell__title {
   margin: 0;
-  font-size: 28px;
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.app-shell__meta {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.app-shell__body {
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
 }
 
 .app-shell__filters {
@@ -22,5 +65,7 @@
 }
 
 .app-shell__main {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }

@@ -1,24 +1,37 @@
 .task-editor h2 {
   margin: 0;
-  font-size: 18px;
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
 }
 
 .task-editor__field {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  font-size: 14px;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
 }
 
 .task-editor__field input[type='text'] {
-  padding: 8px 10px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  padding: 9px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
   font: inherit;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.task-editor__field input[type='text']:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .task-editor__error {
-  color: #c0392b;
+  color: var(--danger);
   font-size: 13px;
   margin: 0;
 }

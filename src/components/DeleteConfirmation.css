@@ -1,13 +1,15 @@
 .delete-confirmation p {
   margin: 0;
+  line-height: 1.55;
 }
 
-.delete-confirmation__confirm {
-  background: #c0392b;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 8px 12px;
-  font: inherit;
-  cursor: pointer;
+.modal__actions button.delete-confirmation__confirm {
+  background: var(--danger);
+  border-color: transparent;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.modal__actions button.delete-confirmation__confirm:hover {
+  filter: brightness(0.92);
 }

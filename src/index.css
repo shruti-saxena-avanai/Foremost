@@ -1,10 +1,35 @@
 :root {
-  --text: #1f2933;
-  --text-muted: #6b6375;
-  --bg: #ffffff;
-  --border: #e5e4e7;
+  --text: #1b2330;
+  --text-muted: #5f6b7c;
+  --text-faint: #98a2b3;
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --surface-muted: #f8f9fb;
+  --border: #e3e7ee;
+  --border-strong: #cdd4df;
 
-  font: 16px/145% system-ui, 'Segoe UI', Roboto, sans-serif;
+  --accent: #2456d6;
+  --accent-strong: #1c46b5;
+  --accent-soft: #e8eefc;
+  --accent-contrast: #ffffff;
+
+  --danger: #c92a2a;
+  --danger-soft: #fdecec;
+
+  --priority-high-text: #b42318;
+  --priority-high-bg: #fee4e2;
+  --priority-medium-text: #b54708;
+  --priority-medium-bg: #fef0c7;
+  --priority-low-text: #475467;
+  --priority-low-bg: #eef1f5;
+
+  --shadow-sm: 0 1px 2px rgb(16 24 40 / 0.06);
+  --shadow-md: 0 4px 16px rgb(16 24 40 / 0.08);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  font: 15px/150% system-ui, 'Segoe UI', Roboto, sans-serif;
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
@@ -16,10 +41,32 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #e5e7eb;
-    --text-muted: #9ca3af;
-    --bg: #16171d;
-    --border: #2e303a;
+    --text: #e6e9ef;
+    --text-muted: #98a2b3;
+    --text-faint: #667085;
+    --bg: #0f1319;
+    --surface: #171c24;
+    --surface-muted: #1d232d;
+    --border: #262d39;
+    --border-strong: #38414f;
+
+    --accent: #4c7df0;
+    --accent-strong: #6b93f5;
+    --accent-soft: #1a2540;
+    --accent-contrast: #ffffff;
+
+    --danger: #f0716a;
+    --danger-soft: #32191a;
+
+    --priority-high-text: #f5867f;
+    --priority-high-bg: #37201e;
+    --priority-medium-text: #f0b04b;
+    --priority-medium-bg: #33270f;
+    --priority-low-text: #98a2b3;
+    --priority-low-bg: #232a35;
+
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 4px 16px rgb(0 0 0 / 0.45);
   }
 }
 
@@ -29,4 +76,16 @@
 
 body {
   margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }

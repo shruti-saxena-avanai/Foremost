@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import AppShell from './components/AppShell'
 import TaskListView from './components/TaskListView'
 import TaskEditor from './components/TaskEditor'
 import DeleteConfirmation from './components/DeleteConfirmation'
 import { useTaskStore } from './state/taskStore'
+import { sortTasks } from './utils/taskSorter'
 import type { Priority, Task } from './state/task'
 import './App.css'
 
@@ -17,6 +18,8 @@ function App() {
   useEffect(() => {
     setIsHydrating(false)
   }, [])
+
+  const sortedTasks = useMemo(() => sortTasks(tasks), [tasks])
 
   function handleSave(input: { title: string; priority: Priority }) {
     if (editingTask && editingTask !== 'new') {
@@ -38,7 +41,7 @@ function App() {
       }
     >
       <TaskListView
-        tasks={tasks}
+        tasks={sortedTasks}
         isLoading={isHydrating}
         error={loadError}
         onRetry={retryLoad}

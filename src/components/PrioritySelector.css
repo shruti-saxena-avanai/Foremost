@@ -1,0 +1,25 @@
+.priority-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.priority-selector select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font: inherit;
+}
+
+.priority-selector--high select {
+  border-color: #c0392b;
+}
+
+.priority-selector--medium select {
+  border-color: #b7791f;
+}
+
+.priority-selector--low select {
+  border-color: #2f855a;
+}
